@@ -1,0 +1,2 @@
+-- Seed data for local development goes here. Empty for now.
+-- The schema itself is created via migrations/ — this file only inserts rows.
