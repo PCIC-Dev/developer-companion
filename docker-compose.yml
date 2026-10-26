@@ -1,0 +1,29 @@
+# Local development container for the Express API ONLY.
+#
+# There is deliberately NO Postgres service here. The Supabase CLI manages the
+# local database (and Auth + Storage) in its own containers via `supabase start`.
+# Defining a second Postgres would diverge from production and cause confusing
+# bugs. The Next.js web app is intentionally NOT containerised — it runs on the
+# host for fast hot-module reload.
+#
+# This file is for local development only; it is not a deployment artifact.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: pcic-api
+    env_file:
+      - apps/api/.env
+    environment:
+      NODE_ENV: development
+    ports:
+      - "4000:4000"
+    # Mount only source so the installed node_modules inside the image are
+    # preserved (pnpm uses symlinks that a full bind-mount would shadow).
+    volumes:
+      - ./apps/api/src:/app/apps/api/src
+      - ./packages/shared/src:/app/packages/shared/src
+    # tsx watch gives hot reload inside the container.
+    command: pnpm --filter api dev
