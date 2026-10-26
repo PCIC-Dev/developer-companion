@@ -1,0 +1,9 @@
+# Build context is the repo root (see docker-compose.yml / apps/api/Dockerfile).
+**/node_modules
+**/.next
+**/dist
+**/build
+**/coverage
+**/.env
+**/.env.local
+.git
