@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables (NEVER commit real values — only .env.example is tracked)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+apps/*/.env
+apps/*/.env.local
+
+# Supabase local/CLI temp files (the CLI manages the local DB in Docker)
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test / coverage output
+coverage/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
