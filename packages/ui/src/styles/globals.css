@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --navy: #081f4b;
+  --org: #fe9237;
+  --bg: #f6f7fb;
+  --card: #fff;
+  --soft: #eef0f6;
+  --ink: #0b1b3f;
+  --mute: #5a6788;
+  --line: #e3e7f0;
+  --hero: #081f4b;
+  --btn: #081f4b;
+  --btni: #fff;
+  --ring: #081f4b;
+  --r: 14px;
+  --sw: 252px;
+  --hd: "Fraunces", Georgia, serif;
+  --bd: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mo: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #070e22;
+  --card: #0f1a38;
+  --soft: #16234a;
+  --ink: #eef1f9;
+  --mute: #a0aed0;
+  --line: #23325c;
+  --hero: #12275c;
+  --btn: #eef1f9;
+  --btni: #081f4b;
+  --ring: #fe9237;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-card: var(--card);
+  --color-card-foreground: var(--ink);
+  --color-primary: var(--org);
+  --color-primary-foreground: var(--navy);
+  --color-secondary: var(--soft);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--soft);
+  --color-muted-foreground: var(--mute);
+  --color-accent: var(--soft);
+  --color-accent-foreground: var(--ink);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--ring);
+  --color-hero: var(--hero);
+  --color-solid: var(--btn);
+  --color-solid-foreground: var(--btni);
+  --font-heading: var(--hd);
+  --font-sans: var(--bd);
+  --font-mono: var(--mo);
+}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+:root {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 500 16px/1.6 var(--bd);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+.pulse {
+  animation: pulse 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.trail-label {
+  font: 700 15px var(--bd);
+}
+.trail-status {
+  font: 500 12px var(--mo);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
