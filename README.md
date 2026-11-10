@@ -198,3 +198,5 @@ private/mutating routes with `requireMember`, and mount it in
   stop any stray dev server.
 - **Key guard fails** → you referenced `SUPABASE_SERVICE_ROLE_KEY` under `apps/web`. Move
   it to `apps/api`; the web app may only ever hold the anon key.
+
+This is the readme that we will be using
