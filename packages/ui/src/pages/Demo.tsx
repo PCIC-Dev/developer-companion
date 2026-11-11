@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { AppShell } from "../components/pcic/app-shell";
 import { BadgeItem } from "../components/pcic/badge-item";
